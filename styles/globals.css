@@ -5,166 +5,149 @@
 @tailwind utilities;
 
 body {
-	background: black;
+    background: black;
 }
 
 .menu-one .line {
-	transition: y 300ms ease-in 300ms, rotate 300ms ease-in, opacity 0ms 300ms;
-	transform-origin: center;
+    transition: y 300ms ease-in 300ms, rotate 300ms ease-in, opacity 0ms 300ms;
+    transform-origin: center;
 }
 
 .menu-one[aria-expanded="true"] .line {
-	transition: y 300ms ease-in, rotate 300ms ease-in 300ms, opacity 0ms 300ms;
+    transition: y 300ms ease-in, rotate 300ms ease-in 300ms, opacity 0ms 300ms;
 }
 
 .menu-one[aria-expanded="true"] :is(.top, .bottom) {
-	y: 45;
+    y: 45;
 }
 
 .menu-one[aria-expanded="true"] .middle {
-	opacity: 0;
+    opacity: 0;
 }
 
 .menu-one[aria-expanded="true"] .top {
-	rotate: 45deg;
+    rotate: 45deg;
 }
 
 .menu-one[aria-expanded="true"] .bottom {
-	rotate: -45deg;
+    rotate: -45deg;
 }
 
 @keyframes to-close-icon {
-	0% {
-		stroke-dashoffset: 0;
-	}
-	40% {
-		stroke-dashoffset: 59.9;
-	}
-	60% {
-		stroke-dashoffset: 59.9;
-		rotate: var(--rotation);
-	}
-	100% {
-		stroke-dashoffset: 0;
-		rotate: var(--rotation);
-	}
+    0% {
+        stroke-dashoffset: 0;
+    }
+    40% {
+        stroke-dashoffset: 59.9;
+    }
+    60% {
+        stroke-dashoffset: 59.9;
+        rotate: var(--rotation);
+    }
+    100% {
+        stroke-dashoffset: 0;
+        rotate: var(--rotation);
+    }
 }
 
 @keyframes to-open-icon {
-	0% {
-		stroke-dashoffset: 0;
-		rotate: var(--rotation);
-	}
-	40% {
-		stroke-dashoffset: 59.9;
-		rotate: var(--rotation);
-	}
-	60% {
-		stroke-dashoffset: 59.9;
-	}
-	100% {
-		stroke-dashoffset: 0;
-	}
+    0% {
+        stroke-dashoffset: 0;
+        rotate: var(--rotation);
+    }
+    40% {
+        stroke-dashoffset: 59.9;
+        rotate: var(--rotation);
+    }
+    60% {
+        stroke-dashoffset: 59.9;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
 }
 
 .tooltip {
-	position: relative;
-	display: inline-block;
-  }
-  
-  .tooltip .tooltiptext {
-	visibility: hidden;
-	width: 120px;
-	background-color: black;
-	color: #fff;
-	text-align: center;
-	border-radius: 6px;
-	padding: 5px 0;
-  
-	/* Position the tooltip */
-	position: absolute;
-	z-index: 1;
-	top: 100%;
-	left: 50%;
-	margin-left: -60px;
-  }
-  
-  .tooltip:hover .tooltiptext {
-	visibility: visible;
-  }
-  
-  /* Customize the track */
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/* Customize the track */
 ::-webkit-scrollbar-track {
-  background-color: #1F2937;
+    background-color: #1F2937;
 }
 
 /* Customize the thumb */
 ::-webkit-scrollbar-thumb {
-  background-color: #4B5563;
-  border-radius: 10px;
+    background-color: #4B5563;
+    border-radius: 10px;
 }
 
 /* Customize the thumb on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #6B7280;
+    background-color: #6B7280;
 }
 
 /* Customize the corner */
 ::-webkit-scrollbar-corner {
-  background-color: #1F2937;
+    background-color: #1F2937;
 }
 
 /* Hide the scrollbar when not in use */
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 /* Define custom CSS rules */
 .calc-148 {
-  left: calc(100% - 128px - 20px);
+    left: calc(100% - 128px - 20px);
 }
-  
+
 .calc-168 {
-  width: calc(100% - 128px - 40px)
+    width: calc(100% - 128px - 40px)
 }
 
 .calc-20 {
-  height: calc(100% - 20px);
+    height: calc(100% - 20px);
 }
 
 .smframe {
-	position: relative;
+    position: relative;
     width: 100%;
-	height: auto;
-	border: 12px solid transparent;
-	border-image: url(/imgs/frame2.png) 12 round;
+    height: auto;
+    border: 12px solid transparent;
 }
 
-.frame {
-  border-image: url(/imgs/Frame.svg) 10 round;
-}
-
-.inner {
- border-image: url(/imgs/FrameInner.svg) 10 round;
-}
-  
 /* Use TailwindCSS to apply custom CSS rules */
-.border-frame {
-  @apply frame;
-}
-
-.border-inner {
-  @apply inner;
-}
-
 .left-calc-148 {
-  @apply calc-148;
+    @apply calc-148;
 }
 
 .w-calc-168 {
-  @apply calc-148;
+    @apply calc-148;
 }
 
 .h-calc-20 {
-  @apply calc-20;
+    @apply calc-20;
 }

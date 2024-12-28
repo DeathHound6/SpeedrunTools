@@ -1,6 +1,7 @@
 import { classNames } from "utils";
 
 export const ErrorPage = ({ background, connected, callback }) => {
+    // TODO: Fix the background image for githubIO urls
     return (
         <>
             <main className="relative w-full h-[100vh] isolate min-h-full">

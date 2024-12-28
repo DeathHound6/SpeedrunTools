@@ -1,18 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ChevronDownIcon, XMarkIcon, Bars3Icon } from '@heroicons/react/20/solid';
 import { Dialog, Disclosure } from '@headlessui/react';
 import { classNames } from 'utils';
 
 const Header = ({ links }) => {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [iconPath, setIconPath] = useState("/imgs/icon.png");
+    useEffect(() => {
+        if (typeof window !== "undefined")
+            setIconPath(window.location.origin.toLowerCase().includes("github.io") ? "/SpeedrunTools/imgs/icon.png" : "/imgs/icon.png");
+    }, []);
     return (
         <header className="z-50 w-full h-full bg-gray-800 text-white flex justify-between items-center gap-4 py-4 px-6">
             <div className="h-full flex justify-start items-center gap-4">
                 <Link href="/" passHref legacyBehavior>
                     <a className="relative z-50">
                         <div className="w-8 h-8 rounded-md overflow-hidden">
-                            <div className="bg-icon bg-contain bg-center w-full h-full" title="Umberlla Corp Icon" />
+                            <div className="bg-contain bg-center w-full h-full" title="Umberlla Corp Icon"
+                            style={{backgroundImage: `url(${iconPath})`}} />
                         </div>
                     </a>
                 </Link>
@@ -22,8 +28,7 @@ const Header = ({ links }) => {
                 <button
                     type="button"
                     className={classNames(mobileMenuOpen ? "bg-red-500" : "bg-gray-900", "p-2 flex items-center justify-center rounded-md text-gray-200 hover:bg-gray-700 cursor-pointer")}
-                    onClick={() => setMobileMenuOpen(prev => !prev)}
-                >
+                    onClick={() => setMobileMenuOpen(prev => !prev)}>
                     <span className="sr-only">Open main menu</span>
                     {!mobileMenuOpen ? <Bars3Icon className="h-6 w-6" aria-hidden="true" /> : <XMarkIcon className="h-6 w-6" aria-hidden="true" />}
                 </button>
@@ -50,8 +55,7 @@ const Header = ({ links }) => {
                                                         key={item.name}
                                                         as="a"
                                                         href={item.href}
-                                                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-700"
-                                                    >
+                                                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-700">
                                                         {item.name}
                                                     </Disclosure.Button>
                                                 ))}
@@ -75,8 +79,7 @@ const Header = ({ links }) => {
                                                         key={item.name}
                                                         as="a"
                                                         href={item.href}
-                                                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-700"
-                                                    >
+                                                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-700">
                                                         {item.name}
                                                     </Disclosure.Button>
                                                 ))}
@@ -100,8 +103,31 @@ const Header = ({ links }) => {
                                                         key={item.name}
                                                         as="a"
                                                         href={item.href}
-                                                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-700"
-                                                    >
+                                                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-700">
+                                                        {item.name}
+                                                    </Disclosure.Button>
+                                                ))}
+                                            </Disclosure.Panel>
+                                        </>
+                                    )}
+                                </Disclosure>
+                                <Disclosure as="div" className="-mx-3">
+                                    {({ open }) => (
+                                        <>
+                                            <Disclosure.Button className=" flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-700">
+                                                Alice in Wonderland
+                                                <ChevronDownIcon
+                                                    className={classNames(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
+                                                    aria-hidden="true"
+                                                />
+                                            </Disclosure.Button>
+                                            <Disclosure.Panel className="mt-2 space-y-2">
+                                                {links.slice(9, 10).map((item) => (
+                                                    <Disclosure.Button
+                                                        key={item.name}
+                                                        as="a"
+                                                        href={item.href}
+                                                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-700">
                                                         {item.name}
                                                     </Disclosure.Button>
                                                 ))}

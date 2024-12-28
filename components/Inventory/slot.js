@@ -17,6 +17,7 @@ export const InventorySlot = ({ item, image, disableBackground, mainSlot, subSlo
         );
     const foundMain = shortcuts.findIndex(obj => item.WeaponId != -1 && obj.WeaponId === item.WeaponId);
     const isMainShortcut = foundMain !== -1;
+    // TODO: Fix item images
     return (
         <div className={classNames(disableBackground ? "" : "bg-re3rslot1", "relative z-1 w-[76px] h-[76px] flex-shrink-0 m-[5px] mr-0")}>
             <div className={classNames(image, "w-full h-full bg-contain bg-center bg-no-repeat")} />
