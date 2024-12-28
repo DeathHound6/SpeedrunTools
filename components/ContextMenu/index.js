@@ -71,79 +71,57 @@ const ContextMenu = ({ x, y, onClose, ...props }) => {
         <div className="absolute z-50 bg-slate-900 text-gray-200 shadow flex flex-col justify-center items-center p-4 font-bold gap-1 text-center" style={{ top: y, left: x }}>
             <div className="w-full pb-2 border-b">Settings</div>
             {props.showDebug !== null && (
-                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer"
-                    onClick={handleDebugClick}
-                >
+                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer" onClick={handleDebugClick}>
                     {props.showDebug ? "Hide Debug Info" : "Show Debug Info"}
                 </div>
             )}
             {props.showID !== null && (
-                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer"
-                    onClick={handleIDClick}
-                >
+                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer" onClick={handleIDClick}>
                     {props.showID ? "Hide Enemy ID's" : "Show Enemy ID's"}
                 </div>
             )}
             {props.bossOnly !== null && (
-                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer"
-                    onClick={handleBossClick}
-                >
+                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer" onClick={handleBossClick}>
                     {props.bossOnly ? "Show All Enemies" : "Show Boss Only"}
                 </div>
             )}
             {props.damagedOnly !== null && (
-                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer"
-                    onClick={handleDamageClick}
-                >
+                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer" onClick={handleDamageClick}>
                     {props.damagedOnly ? "Show All Alive Enemies" : "Show Only Damaged Enemies"}
                 </div>
             )}
             {props.showRank !== null && (
-                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer"
-                    onClick={handleRankClick}
-                >
+                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer" onClick={handleRankClick}>
                     {props.showRank ? "Hide Rank" : "Show Rank"}
                 </div>
             )}
             {props.showKillCount !== null && (
-                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer"
-                    onClick={handleKillCountClick}
-                >
+                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer" onClick={handleKillCountClick}>
                     {props.showKillCount ? "Hide Kill Count" : "Show Kill Count"}
                 </div>
             )}
             {props.showLocation !== null && (
-                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer"
-                    onClick={handleLocationClick}
-                >
+                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer" onClick={handleLocationClick}>
                     {props.showLocation ? "Hide Locations" : "Show Locations"}
                 </div>
             )}
             {props.showIGT !== null && (
-                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer"
-                    onClick={handleIGTClick}
-                >
+                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer" onClick={handleIGTClick}>
                     {props.showIGT ? "Hide IGT" : "Show IGT"}
                 </div>
             )}
             {props.showInventory !== null && (
-                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer"
-                    onClick={handleInventoryClick}
-                >
+                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer" onClick={handleInventoryClick}>
                     {props.showInventory ? "Hide Inventory" : "Show Inventory"}
                 </div>
             )}
             {props.showPosition !== null && (
-                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer"
-                    onClick={handlePositionClick}
-                >
+                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer" onClick={handlePositionClick}>
                     {props.showPosition ? "Hide Position" : "Show Position"}
                 </div>
             )}
             {props.showRotation !== null && (
-                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer"
-                    onClick={handleRotationClick}
-                >
+                <div className="w-full hover:bg-slate-700 p-4 font-normal cursor-pointer" onClick={handleRotationClick}>
                     {props.showRotation ? "Hide Rotation" : "Show Rotation"}
                 </div>
             )}

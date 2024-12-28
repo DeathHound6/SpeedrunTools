@@ -47,6 +47,11 @@ const links = [
     name: 'Inventory',
     href: '/widgets/RE4R/inventory',
     active: false
+  },
+  {
+    name: 'JSON',
+    href: '/widgets/Alice/json',
+    active: false
   }
 ];
 
