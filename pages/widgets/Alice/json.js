@@ -30,7 +30,7 @@ const AliceJSON = () => {
     const [showContextMenu, setShowContextMenu] = useState(false);
     const [contextMenuPos, setContextMenuPos] = useState({ x: 0, y: 0 });
     const [showDebug, SetShowDebug] = useState(false);
-    const [bossOnly, SetBossOnly] = useState(true);
+    const [bossOnly, SetBossOnly] = useState(false);
     const [damagedOnly, SetDamagedOnly] = useState(false);
     const [isLoaded, SetIsLoaded] = useState(0);
 
