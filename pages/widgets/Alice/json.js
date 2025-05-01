@@ -4,6 +4,7 @@ import { GameErrorPage } from "components/Errors";
 import HealthBar from "components/HealthBar";
 import ContextMenu from "components/ContextMenu";
 import { saveUserSettings, loadUserSettings } from 'utils';
+import { TextBlocksRowBetween } from "@/components/TextBlock";
 
 //LOCAL JSON SERVER SETTINGS
 var JSON_ADDRESS = "127.0.0.1";
@@ -104,7 +105,7 @@ const AliceJSON = () => {
     // TODO: Create a new background image for Alice in Wonderland
     if (data !== null && data.GameName !== "Alice in Wonderland") return <GameErrorPage background="bg-re2" callback={handleConnect} />;
 
-    const { Enemies } = data;
+    const { Enemies, Map, Sector, Heroes } = data;
 
     const isBoss = [6];
 
@@ -132,6 +133,42 @@ const AliceJSON = () => {
         if (id === 3) return "Red Knight Fortress";
         if (id === 4) return "Red Knight Sniffer";
         if (id === 6) return "Stayne";
+        return "??";
+    }
+
+    const GetMapName = (id) => {
+        if (id == -1) return "Loading Screen";
+        if (id == 0) return "Main Menu";
+        if (id == 10) return "Round Hall (Hub)";
+        if (id == 20) return "Strange Garden";
+        if (id == 30) return "Tulgey Woods";
+        if (id == 40) return "March Hare's House";
+        if (id == 50) return "Hightopps";
+        if (id == 60) return "Cabin";
+        if (id == 70) return "Red Desert";
+        if (id == 75) return "The Moat";
+        if (id == 80) return "Salazen Grum (Red Queen's Castle)";
+        if (id == 85) return "Bandersnatch Stables";
+        if (id == 90) return "Marmoreal (White Queen's Castle)";
+        if (id == 100) return "Frabjous Day";
+        return "??";
+    }
+
+    const GetPlayerName = (id) => {
+        if (id == 0) return "Player 1";
+        if (id == 1) return "Player 2";
+        if (id == 2) return "Alice";
+        return "??";
+    }
+
+    const GetCharacterName = (id) => {
+        if (id == 0) return "McTwisp (White Rabbit)";
+        if (id == 1) return "Mad Hatter";
+        if (id == 2) return "Cheshire Cat";
+        if (id == 3) return "March Hare";
+        if (id == 4) return "Alice (Small)";
+        if (id == 5) return "Alice";
+        if (id == 6) return "Mallymkun (Dormouse)";
         return "??";
     }
 
@@ -173,8 +210,32 @@ const AliceJSON = () => {
                         SetShowDebug={SetShowDebug}
                     />
                 )}
+                {/* Only include players 1 + 2 - Alice doesn't have a health value */}
+                {Heroes.filter(hero => hero.HeroNumber != 2).map((hero, idx) => (
+                    <HealthBar
+                        debug={showDebug}
+                        key={`hero${idx}`}
+                        id={hero.HeroNumber}
+                        current={hero.CurrentHealth}
+                        max={hero.MaxHealth}
+                        percent={hero.Percentage/100}
+                        label={`${GetPlayerName(hero.HeroNumber)}: ${GetCharacterName(hero.CharacterType)}`}
+                        colors={["bg-blue-900", "text-blue-300"]} />
+                ))}
+                <TextBlocksRowBetween
+                    labels={["Map", "Map Name", "Sector"]}
+                    vals={[Map, GetMapName(Map), Sector]}
+                    colors={["text-white", "text-green-500"]} />
                 {filterdEnemies.map((enemy, idx) => (
-                    <HealthBar debug={showDebug} key={`enemy${idx}`} id={enemy.EnemyType} current={enemy.CurrentHealth} max={enemy.MaxHealth} percent={enemy.Percentage/100} label={GetEnemyName(enemy.EnemyType)} colors={["bg-red-900", "text-red-300"]} />
+                    <HealthBar
+                    debug={showDebug}
+                    key={`enemy${idx}`}
+                    id={enemy.EnemyType}
+                    current={enemy.CurrentHealth}
+                    max={enemy.MaxHealth}
+                    percent={enemy.Percentage/100}
+                    label={GetEnemyName(enemy.EnemyType)}
+                    colors={["bg-red-900", "text-red-300"]} />
                 ))}
             </div>
         </>
