@@ -105,7 +105,7 @@ const AliceJSON = () => {
     // TODO: Create a new background image for Alice in Wonderland
     if (data !== null && data.GameName !== "Alice in Wonderland") return <GameErrorPage background="bg-re2" callback={handleConnect} />;
 
-    const { Enemies, Map, Sector, Heroes } = data;
+    const { Enemies, Map, Sector, Heroes, GameTime } = data;
 
     const isBoss = [6];
 
@@ -225,6 +225,10 @@ const AliceJSON = () => {
                 <TextBlocksRowBetween
                     labels={["Map", "Map Name", "Sector"]}
                     vals={[Map, GetMapName(Map), Sector]}
+                    colors={["text-white", "text-green-500"]} />
+                <TextBlocksRowBetween
+                    labels={["Game Time"]}
+                    vals={[new Date(GameTime * 1000).toISOString().slice(11, 19)]}
                     colors={["text-white", "text-green-500"]} />
                 {filterdEnemies.map((enemy, idx) => (
                     <HealthBar
