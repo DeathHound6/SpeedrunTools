@@ -102,8 +102,7 @@ const AliceJSON = () => {
     };
 
     if (data === null) return <></>;
-    // TODO: Create a new background image for Alice in Wonderland
-    if (data !== null && data.GameName !== "Alice in Wonderland") return <GameErrorPage background="bg-re2" callback={handleConnect} />;
+    if (data !== null && data.GameName !== "Alice in Wonderland") return <GameErrorPage background="bg-alice" callback={handleConnect} />;
 
     const { Enemies, Map, Sector, Heroes, GameTime } = data;
 
@@ -210,8 +209,8 @@ const AliceJSON = () => {
                         SetShowDebug={SetShowDebug}
                     />
                 )}
-                {/* Only include players 1 + 2 - Alice doesn't have a health value */}
                 {Heroes.filter(hero => hero.HeroNumber != 2).map((hero, idx) => (
+                    /* Only include players 1 + 2 - Alice doesn't have a health value */
                     <HealthBar
                         debug={showDebug}
                         key={`hero${idx}`}

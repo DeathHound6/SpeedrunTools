@@ -90,6 +90,7 @@ module.exports = {
         "re2": "url('/imgs/background2.jpeg')",
         "re3": "url('/imgs/background3.jpg')",
         "re4": "url('/imgs/background.jpeg')",
+        "alice": "url('/imgs/background-alice.jpg')",
         "title": "url('/imgs/TitleScreen.png')",
         "eslot1": "url('/imgs/RE2R/EquipSlot1.png')",
         "eslot2": "url('/imgs/RE2R/EquipSlot2.png')",
